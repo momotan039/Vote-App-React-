@@ -30,6 +30,6 @@ total time I have:10
 -----------------------------------
 
 Project milestones:
-1- build the sections by section (from bottom to top)
+1- build the sections one by section (from bottom to top)
 2- connect one each other (bind the data between them)
 3- make the app responsive
