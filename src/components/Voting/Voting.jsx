@@ -11,7 +11,8 @@ function Voting(props) {
             admins.map(a=>{
                 <option value={a.name}>{a.name}</option>
             })
-       }</select>
+       }
+       </select>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { users } from '../../data.js'
 import PopUp from '../PopUP/PopUp.jsx'
 import './Login.css'
@@ -11,13 +11,11 @@ function Login(props) {
         e.preventDefault()
         const _user = users.find(u => u.email === user.email && u.password === user.password)
 
-        if (!_user)
-        {
+        if (!_user) {
             setFindUser(false)
             return
         }
 
-        // localStorage.setItem(user,_user)
         props.onceFindUser(_user)
     }
 
@@ -49,7 +47,7 @@ function Login(props) {
                 </form>
             </div>
             {
-                !findUser && <PopUp closePopUp={()=>setFindUser(true)} message='Email or password not correct..Please try again!!' />
+                !findUser && <PopUp closePopUp={() => setFindUser(true)} message='Email or password not correct..Please try again!!' />
             }
         </>
 

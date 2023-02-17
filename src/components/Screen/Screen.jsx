@@ -1,14 +1,20 @@
-function Screen() {
-  
+import Login from '../Login/Login'
+import Statistics from '../Statistics/Statistics'
+import UserPage from '../UserPage/UserPage'
+import Voting from '../Voting/Voting'
+
+function Screen(props) {
+  const user=props.user
   const screens=[
-    <Login onceFindUser={(user) => showUserPage(user)} />,
-    <UserPage showVoting={() => showVotingPage()} user={currentUser} />,
-    <Voting user={currentUser} />
+    <Login onceFindUser={(u)=>props.changeUser(u)}/>,
+    <UserPage changeScreen={(num)=>props.changeScreen(num)} user={user} />,
+    <Voting changeScreen={(num)=>props.changeScreen(num)} user={user} />,
+    <Statistics changeScreen={(num)=>props.changeScreen(num)}/>,
   ]
-const getCurrentScree=()=>{
+const getCurrentScreen=()=>{
   return screens[props.numberScreen]
 }
- return getCurrentScree()
+ return getCurrentScreen()
   // return (
   //   <>
   //     {!currentUser && <Login onceFindUser={(user) => showUserPage(user)} />}
