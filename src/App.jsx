@@ -4,12 +4,17 @@ import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'
 import UserPage from './components/UserPage/UserPage'
+import Voting from './components/Voting/Voting'
 
 function App() {
   let [currentUser, setCurrentUser] = useState(null)
+  let [showVoting, setShowVoting] = useState(false)
 
-const showVotingPage=(user)=>{
+const showUserPage=(user)=>{
   setCurrentUser({...user})
+}
+const showVotingPage=()=>{
+  setShowVoting(true)
 }
 
   return (
@@ -19,10 +24,7 @@ const showVotingPage=(user)=>{
         <main className='container'>
           <div className="center">
             {
-              !currentUser && <Login  onceFindUser={(user)=>showVotingPage(user)}/>
-            }
-            {
-              currentUser && <UserPage user={currentUser}/>
+              <Screen numberScreen={0} />
             }
           </div>
         </main>

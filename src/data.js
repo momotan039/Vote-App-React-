@@ -1,9 +1,15 @@
  const users=[
   {
     name: 'Mohammed Taha',
-    password: 'Hd123456',
+    password: 'm',
     type: 'admin',
-    email: 'momotaha039@gmail.com'
+    email: 'm'
+  },
+  {
+    name: 'virtual user',
+    password: 'u',
+    type: 'user',
+    email: 'u'
   },
     {
       name: 'Tyler-James',

@@ -4,8 +4,11 @@ function UserPage(props){
         <h1>Welcome Back {props.user.name}</h1>
         <h2>Select One of these options:</h2>
         <div className="controls">
-        <button>show statistics</button>
-        <button>go to vote</button>
+        {
+         (props.user.type==="admin")&&
+         <button>show statistics</button>
+        }
+        <button onClick={()=>props.showVoting()}>go to vote</button>
         </div>
    </div>
 }
