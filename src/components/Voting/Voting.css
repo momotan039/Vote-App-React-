@@ -1,0 +1,29 @@
+#voting{
+    display: flex;
+    gap: 10px;
+}
+
+.voteBtnDisable{
+    pointer-events: none;
+}
+
+.voteBtn{
+    width: auto !important;
+}
+
+.voteBtn:hover{
+    background: var(--blue);
+    color: var(--light-extra-blue);
+}
+
+.select-candidate{
+    padding: 16px 20px;
+    font-size: 21px;
+    color: white;
+    background-color: var(--light-blue);
+    border-radius: 10px;
+}
+
+.select-candidate option{
+    background: var(--black);
+}

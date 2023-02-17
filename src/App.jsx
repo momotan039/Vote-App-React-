@@ -15,14 +15,27 @@ function App() {
 
     const _userJson = JSON.parse(_user)
     setCurrentScreen(1)
+
+    const votedUser=votedUsers.find(u=>u.email===_userJson.email)
+    debugger
+    if(votedUser)
+    setCurrentUser(votedUser)
+    else
     setCurrentUser(_userJson)
+  }
+  const getVotedUsers = () => {
+    const votedUsers = JSON.parse(localStorage.getItem('votedUsers'))
+    debugger
+    if (votedUsers)
+      setVotedUsers(votedUsers)
   }
 
   let [currentScreen, setCurrentScreen] = useState(0)
   let [currentUser, setCurrentUser] = useState(undefined)
-  let [showVoting, setShowVoting] = useState(false)
+  let [votedUsers, setVotedUsers] = useState([])
 
   useEffect(() => {
+    getVotedUsers()
     getCurrentUser()
   }, [])
 
@@ -40,11 +53,12 @@ function App() {
         <main className='container'>
           <div className="center">
             <Screen
+              votedUsers={votedUsers}
               changeUser={(u) => handelChangeUser(u)}
               user={currentUser}
-              numberScreen={currentScreen} 
-              changeScreen={(num)=>setCurrentScreen(num)}
-              />
+              numberScreen={currentScreen}
+              changeScreen={(num) => setCurrentScreen(num)}
+            />
           </div>
         </main>
         <Footer />

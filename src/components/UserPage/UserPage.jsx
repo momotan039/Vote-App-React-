@@ -1,7 +1,6 @@
 import './UserPage.css'
 function UserPage(props){
-   debugger
-   return<div className="user-page">
+   return<div className="user-page container-data">
         <h1>Welcome Back {props.user.name}</h1>
         <h2>Select One of these options:</h2>
         <div className="controls">

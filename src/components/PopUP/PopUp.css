@@ -16,7 +16,7 @@
     height: 260px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     border-radius: 16px;
     animation: scalePopup .5s;
@@ -24,6 +24,14 @@
     line-height: 1.5;
 }
 
+#popup-container .content .message{
+    text-align: center;
+}
+
+
+#popup-container button:hover{
+    background: var(--blue);
+}
 
 @keyframes scalePopup {
     from {

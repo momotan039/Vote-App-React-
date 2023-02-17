@@ -8,8 +8,8 @@ function Screen(props) {
   const screens=[
     <Login onceFindUser={(u)=>props.changeUser(u)}/>,
     <UserPage changeScreen={(num)=>props.changeScreen(num)} user={user} />,
-    <Voting changeScreen={(num)=>props.changeScreen(num)} user={user} />,
-    <Statistics changeScreen={(num)=>props.changeScreen(num)}/>,
+    <Voting votedUsers={props.votedUsers}  changeScreen={(num)=>props.changeScreen(num)} user={user} />,
+    <Statistics votedUsers={props.votedUsers} changeScreen={(num)=>props.changeScreen(num)} user={user}/>,
   ]
 const getCurrentScreen=()=>{
   return screens[props.numberScreen]

@@ -32,7 +32,7 @@ main{
 }
 
  button{
-  width: 100px;
+  width: auto;
   padding: 20px;
   border: 0;
   border-radius: 10px;
@@ -47,4 +47,13 @@ main{
   button:hover{
     background: var(--black);
     color: var(--light-extra-blue);
+  }
+
+  .container-data{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--blue);
+    padding: 30px;
+    border-radius: 20px;
   }

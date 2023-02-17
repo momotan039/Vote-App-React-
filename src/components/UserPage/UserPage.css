@@ -1,11 +1,3 @@
-.user-page{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    background-color: var(--blue);
-    padding: 30px;
-    border-radius: 20px;
-}
 .user-page .controls{
     display: flex;
     justify-content: space-evenly;
