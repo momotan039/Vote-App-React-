@@ -1,0 +1,23 @@
+.table-continer{
+    width: 100%;
+    height: 500px;
+    overflow: auto;
+}
+#table-statistics{
+    width: 100%;
+    border-collapse: collapse;
+}
+#table-statistics td,
+#table-statistics th,
+#table-statistics tr
+{
+    border: 2px solid;
+    font-size: 23px;
+    padding: 22px;
+}
+#table-statistics th{
+    color: white;
+}
+main{
+    height: auto ;
+}

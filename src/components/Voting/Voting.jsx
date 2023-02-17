@@ -3,12 +3,6 @@ import { users } from "../../data";
 import PopUp from "../PopUP/PopUp";
 import "./Voting.css";
 function Voting(props) {
-
-  const admins = users.filter((u) => u.type === "admin");
-  const [candidate,setCandidate]=useState(undefined)
-  const [popUpButtonText,setPopUpButtonText]=useState(undefined)
-  const [popupMessage,setPopupMessage]=useState(undefined)
-  
   const checkUserVoted=()=>{
     const user=props.votedUsers.find(u=>u.email===props.user.email)
     if(!user)
@@ -16,7 +10,22 @@ function Voting(props) {
 
     return true
   }
-  const isVoted = checkUserVoted();
+  const admins = users.filter((u) => u.type === "admin");
+  const [candidate,setCandidate]=useState(undefined)
+  const [popUpButtonText,setPopUpButtonText]=useState(undefined)
+  const [popupMessage,setPopupMessage]=useState(undefined)
+  const [isVoted,setIsVoted]=useState(checkUserVoted())
+
+  
+  const changeVote=()=>{
+    let votedUsers=props.votedUsers.filter(u=>u.email!==props.user.email);
+    localStorage.removeItem('votedUsers')
+    localStorage.setItem('votedUsers',JSON.stringify(votedUsers))
+    props.changeVotedUsers(votedUsers)
+    setCandidate(undefined)
+    setIsVoted(false)
+  }
+  
 
   // useRef to make the funciton assignable
   const closePopUp = useRef();
@@ -54,7 +63,7 @@ function Voting(props) {
         setPopupMessage(undefined)
        }
     }
-    
+    setIsVoted(true)
   }
 
   const selectOption=(select)=>{
@@ -84,6 +93,7 @@ function Voting(props) {
         props.user.type==='admin'&&
         <button onClick={()=>props.changeScreen(3)}>go to statistics</button>
       }
+      <button onClick={changeVote}>Change vote</button>
       <button onClick={logout}>logout</button>
       </div>
     }

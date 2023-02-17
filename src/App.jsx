@@ -7,7 +7,6 @@ import Screen from './components/Screen/Screen'
 
 function App() {
 
-
   const getCurrentUser = () => {
     const _user = localStorage.getItem('user')
     if (!_user)
@@ -17,7 +16,6 @@ function App() {
     setCurrentScreen(1)
 
     const votedUser=votedUsers.find(u=>u.email===_userJson.email)
-    debugger
     if(votedUser)
     setCurrentUser(votedUser)
     else
@@ -25,7 +23,6 @@ function App() {
   }
   const getVotedUsers = () => {
     const votedUsers = JSON.parse(localStorage.getItem('votedUsers'))
-    debugger
     if (votedUsers)
       setVotedUsers(votedUsers)
   }
@@ -33,6 +30,8 @@ function App() {
   let [currentScreen, setCurrentScreen] = useState(0)
   let [currentUser, setCurrentUser] = useState(undefined)
   let [votedUsers, setVotedUsers] = useState([])
+  let [countVotes, setCountVotes] = useState(0)
+  const maxVotes=2
 
   useEffect(() => {
     getVotedUsers()
@@ -54,6 +53,7 @@ function App() {
           <div className="center">
             <Screen
               votedUsers={votedUsers}
+              changeVotedUsers={(vu)=>setVotedUsers(vu)}
               changeUser={(u) => handelChangeUser(u)}
               user={currentUser}
               numberScreen={currentScreen}
