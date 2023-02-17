@@ -18,8 +18,7 @@
     justify-content: space-between;
 }
 
-.login form .row:nth-child(1),
-.login form .row:last-child{
+.login form .row.center{
     justify-content: center;
 }
 .login form .row.error-messeage{
@@ -41,17 +40,5 @@
     color: var(--light-blue);
     font-size: 20px;
     font-weight: bold;
-}
-
-.login form button{
-width: 100px;
-padding: 20px;
-border: 0;
-border-radius: 10px;
-cursor: pointer;
-font-weight: bold;
-font-size: 20px;
-background-color: var(--light-blue);
-color: var(--extra-light-blue);
 }
 

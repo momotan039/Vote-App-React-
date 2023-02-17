@@ -1,4 +1,10 @@
  const users=[
+  {
+    name: 'Mohammed Taha',
+    password: 'Hd123456',
+    type: 'admin',
+    email: 'momotaha039@gmail.com'
+  },
     {
       name: 'Tyler-James',
       password: 'AiHU39s',
@@ -181,4 +187,10 @@
     }
   ]
 
-export {users}
+const getUserFromLocalStorage=()=>{
+  const user=JSON.parse(localStorage.getItem('user'))
+  debugger
+return user
+}
+
+export {users,getUserFromLocalStorage}
