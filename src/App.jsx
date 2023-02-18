@@ -3,7 +3,7 @@ import './App.css'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Screen from './components/Screen/Screen'
-
+import {tools} from './components/Voting/Voting-functions.js'
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
     else
     setCurrentUser(_userJson)
   }
+  
   const getVotedUsers = () => {
     const votedUsers = JSON.parse(localStorage.getItem('votedUsers'))
     if (votedUsers)

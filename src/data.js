@@ -1,16 +1,4 @@
  const users=[
-  {
-    name: 'Mohammed Taha',
-    password: 'm',
-    type: 'admin',
-    email: 'm'
-  },
-  {
-    name: 'virtual user',
-    password: 'u',
-    type: 'user',
-    email: 'u'
-  },
     {
       name: 'Tyler-James',
       password: 'AiHU39s',
@@ -190,8 +178,10 @@
       password: '9YSLDWL',
       type: 'admin',
       email: 'Tomas19@aol.com'
+
     }
   ]
+
 
 const getUserFromLocalStorage=()=>{
   const user=JSON.parse(localStorage.getItem('user'))
