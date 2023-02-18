@@ -91,7 +91,8 @@ function Voting(props) {
       <h1>you already voted to {props.user.votedFor}</h1>
       {
         props.user.type==='admin'&&
-        <button onClick={()=>props.changeScreen(3)}>go to statistics</button>
+        <button onClick={()=>props.changeScreen(3)}>
+          go to statistics</button>
       }
       <button onClick={changeVote}>Change vote</button>
       <button onClick={logout}>logout</button>

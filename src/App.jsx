@@ -49,8 +49,7 @@ function App() {
     <div className="App">
       <>
         <Header />
-        <main className='container'>
-          <div className="center">
+          <div className="container">
             <Screen
               votedUsers={votedUsers}
               changeVotedUsers={(vu)=>setVotedUsers(vu)}
@@ -60,7 +59,6 @@ function App() {
               changeScreen={(num) => setCurrentScreen(num)}
             />
           </div>
-        </main>
         <Footer />
       </>
     </div>

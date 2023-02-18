@@ -3,27 +3,20 @@ import Statistics from '../Statistics/Statistics'
 import UserPage from '../UserPage/UserPage'
 import Voting from '../Voting/Voting'
 
-function Screen(props) {
-  const user=props.user
+function Screen({user,changeUser,changeScreen,votedUsers,changeVotedUsers,numberScreen}) {
   const screens=[
-    <Login onceFindUser={(u)=>props.changeUser(u)}/>,
-    <UserPage changeScreen={(num)=>props.changeScreen(num)} user={user} />,
-    <Voting changeVotedUsers={props.changeVotedUsers} votedUsers={props.votedUsers}  changeScreen={(num)=>props.changeScreen(num)} user={user} />,
-    <Statistics votedUsers={props.votedUsers} changeScreen={(num)=>props.changeScreen(num)} user={user}/>,
+    <Login onceFindUser={(u)=>changeUser(u)}/>,
+    <UserPage changeScreen={(num)=>changeScreen(num)} user={user} />,
+    <Voting changeVotedUsers={changeVotedUsers} votedUsers={votedUsers}  changeScreen={(num)=>changeScreen(num)} user={user} />,
+    <Statistics votedUsers={votedUsers} changeScreen={(num)=>changeScreen(num)} user={user}/>,
   ]
 const getCurrentScreen=()=>{
-  return screens[props.numberScreen]
+  return screens[numberScreen]
 }
+if(numberScreen===3)
  return getCurrentScreen()
-  // return (
-  //   <>
-  //     {!currentUser && <Login onceFindUser={(user) => showUserPage(user)} />}
-  //     {currentUser && (
-  //       <UserPage showVoting={() => showVotingPage()} user={currentUser} />
-  //     )}
-  //     {showVoting && <Voting user={currentUser} />}
-  //   </>
-  // );
+ else return <main>{getCurrentScreen()}</main>
+
 }
 
 export default Screen;

@@ -14,10 +14,9 @@
     border: 2px solid;
     font-size: 23px;
     padding: 22px;
-}
-#table-statistics th{
     color: white;
 }
+
 main{
     height: auto ;
 }
