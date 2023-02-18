@@ -13,7 +13,7 @@ function Screen({user,changeUser,changeScreen,votedUsers,changeVotedUsers,number
 const getCurrentScreen=()=>{
   return screens[numberScreen]
 }
-if(numberScreen===3)
+if(numberScreen>=2)
  return getCurrentScreen()
  else return <main>{getCurrentScreen()}</main>
 

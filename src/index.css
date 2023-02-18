@@ -57,3 +57,8 @@ main{
     padding: 30px;
     border-radius: 20px;
   }
+  
+
+  .scale{
+    animation: scalePopup 1s;
+  }

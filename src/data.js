@@ -3,7 +3,7 @@
       name: 'Tyler-James',
       password: 'AiHU39s',
       type: 'admin',
-      email: 'Tyler-James46@walla.co.il'
+      email: 'Tyler-James46@walla.co.il',
     },
     {
       name: 'Kevan',
@@ -93,13 +93,13 @@
       name: 'Liam-Stephen',
       password: 'DikwxAF',
       type: 'admin',
-      email: 'Liam-Stephen2@walla.co.il'
+      email: 'Liam-Stephen2@walla.co.il',
     },
     {
       name: 'Jordy',
       password: 'CYJDYqI',
       type: 'admin',
-      email: 'Jordy29@gmail.com'
+      email: 'Jordy29@gmail.com',
     },
     {
       name: 'Raheem',
@@ -135,7 +135,7 @@
       name: 'Warren',
       password: '67sh1uP',
       type: 'admin',
-      email: 'Warren17@gmail.com'
+      email: 'Warren17@gmail.com',
     },
     {
       name: 'Konrad',
@@ -178,9 +178,27 @@
       password: '9YSLDWL',
       type: 'admin',
       email: 'Tomas19@aol.com'
-
     }
   ]
+
+const parties=[
+  {
+    name:'dogs',
+    img:'./assets/dogs.jpg'
+  },
+  {
+    name:'lions',
+    img:'./assets/lions.jpg'
+  },
+  {
+    name:'cats',
+    img:'./assets/cats.jpg'
+  },
+  {
+    name:'cows',
+    img:'./assets/cows.jpg'
+  },
+]
 
 
 const getUserFromLocalStorage=()=>{
@@ -189,4 +207,4 @@ const getUserFromLocalStorage=()=>{
 return user
 }
 
-export {users,getUserFromLocalStorage}
+export {parties,users,getUserFromLocalStorage}

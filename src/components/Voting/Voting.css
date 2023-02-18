@@ -27,3 +27,21 @@
 .select-candidate option{
     background: var(--black);
 }
+
+#parties{
+    display: flex;
+    gap: 10px;
+}
+
+#parties .party{
+    width: 25%;
+    height: 300px;
+    background: var(--black);
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+#parties .party img{
+    width: 100%;
+    height: 61%;
+}

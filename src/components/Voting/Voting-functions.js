@@ -3,6 +3,11 @@ export const logout = (props) => {
     props.changeScreen(0)
 }
 
+export const selectParty=(party,setIsVoted)=>{
+    debugger
+    setIsVoted(true)
+}
+
 export const voteToCandidate = (candidate,closePopUp,setPopupMessage,setPopUpButtonText,props,setIsVoted) => {
     if (!candidate) {
         setPopupMessage("Please Select Candidate before Voting!!")
