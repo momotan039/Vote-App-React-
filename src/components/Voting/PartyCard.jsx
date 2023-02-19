@@ -32,7 +32,7 @@ function PartyCard({ party,voteMe,unVoteMe,isVotedUser,selectedParty,votedUsers,
     
     return <div className="party scale">
         <h2>{party.name}</h2>
-        <img src={party.img}/>
+        <div style={{backgroundImage:`url(${party.img})`, height:"50px", width:"50px", backgroundPosition:"center", backgroundSize:"cover"}}></div>
         <h2>total votes:{getTotalVotes()}</h2>
         <div className="controls">
             <button className={isVotedUser||IsBallotIn ? "voteBtnDisable" : "voteBtn"} onClick={handelVoteMe}>Vote</button>
