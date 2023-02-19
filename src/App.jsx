@@ -60,7 +60,7 @@ function App() {
               user={currentUser}
               numberScreen={currentScreen}
               changeScreen={(num) => setCurrentScreen(num)}
-            />
+/>
           </div>
         <Footer />
       </>

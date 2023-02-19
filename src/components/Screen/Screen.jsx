@@ -16,7 +16,6 @@ const getCurrentScreen=()=>{
 if(numberScreen>=2)
  return getCurrentScreen()
  else return <main>{getCurrentScreen()}</main>
-
 }
 
 export default Screen;

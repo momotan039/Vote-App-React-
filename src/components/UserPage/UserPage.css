@@ -1,5 +1,6 @@
 .user-page .controls{
     display: flex;
+    gap: 15px;
     justify-content: space-evenly;
 }
 .user-page button{
