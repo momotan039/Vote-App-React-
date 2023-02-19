@@ -184,19 +184,19 @@
 const parties=[
   {
     name:'dogs',
-    img:'./assets/dogs.jpg'
+    img:'/src/assets/dogs.jpg'
   },
   {
     name:'lions',
-    img:'./assets/lions.jpg'
+    img:'/src/assets/lions.jpg'
   },
   {
     name:'cats',
-    img:'./assets/cats.jpg'
+    img:'/src/assets/cats.jpg'
   },
   {
     name:'cows',
-    img:'./assets/cows.jpg'
+    img:'/src/assets/cows.jpg'
   },
 ]
 
