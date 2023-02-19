@@ -3,6 +3,11 @@ import { useEffect } from "react"
 import { users } from '../../data';
 
 function MyChart({votedUsers}) {
+
+  const getvoting=(party)=>{
+    return votedUsers.map(v=>v.votedFor===party).length
+  }
+  Chart.defaults.font.weight="bold"
     let chart;
     const initChart = () => {
         console.log(votedUsers);
@@ -14,24 +19,31 @@ function MyChart({votedUsers}) {
       chart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-          labels: ['voted','didn\'t voted'],
+          labels: ['cats','dogs','lions','cows'],
           datasets: [
             {
-              data: [votedUsers.length,users.length-votedUsers.length],
+              data: [getvoting('cats'),getvoting('dogs'),getvoting('lions'),getvoting('cows')],
             },
           ],
         },
         options: {
           plugins:{
             tooltip: {
-
                 callbacks: {
                     label:(context)=>{
                         return ((context.raw/users.length)*100).toFixed(2)+'%'
                     }
                 }
               },
-
+              legend:{
+                labels:{
+                  font:{
+                    size:25,
+                    weight:'bold',
+                    style:'italic'
+                  }
+                }
+              }
           },
           maintainAspectRatio: false,
         },

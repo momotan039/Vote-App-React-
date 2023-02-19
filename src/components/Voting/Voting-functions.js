@@ -2,10 +2,14 @@ export const logout = (props) => {
     localStorage.removeItem("user")
     props.changeScreen(0)
 }
-
-export const selectParty=(party,setIsVoted)=>{
+export const UnVoteCandidate=(unVoteParty)=>{
+    debugger
+    unVoteParty(false)
+}
+export const selectParty=(party,setIsVoted,setCandidate)=>{
     debugger
     setIsVoted(true)
+    setCandidate(party)
 }
 
 export const voteToCandidate = (candidate,closePopUp,setPopupMessage,setPopUpButtonText,props,setIsVoted) => {

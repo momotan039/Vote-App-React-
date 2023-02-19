@@ -2,9 +2,8 @@ import { users } from "../../data"
 import MyChart from "../Chart/MyChart"
 import './Statistics.css'
 function Statistics({ user, changeScreen,votedUsers}) {
-    const myVotedUsers=votedUsers.filter(u=>u.votedFor===user.name)
     const didVoteUser=(u)=>{
-        const _user=myVotedUsers.find(f=>f.email===u.email)
+        const _user=votedUsers.find(f=>f.email===u.email)
         if(_user)
         return "Yes"
         return "No"
@@ -40,8 +39,8 @@ function Statistics({ user, changeScreen,votedUsers}) {
         </table>
         </div>
         <div className="container-data">
-            <h1>Statistics for {user.name}</h1>
-            <h2>Total Votes:{votedUsers.length}</h2>
+            {/* <h1>Statistics for {user.name}</h1>
+            <h2>Total Votes:{votedUsers.length}</h2> */}
             <button onClick={() => changeScreen(1)}>back</button>
         </div>
     </>

@@ -1,23 +1,40 @@
 import { useState } from "react"
 
-function PartyCard({ party,voteMe }) {
-    let [votes,setVotes]=useState(0)
+function PartyCard({ party,voteMe,unVoteMe,isVotedUser,selectedParty,votedUsers,IsBallotIn}) {
+    debugger
+    const getTotalVotes=()=>{
+
+        let votes=votedUsers.filter(f=>f.votedFor===party.name).length
+
+        if(!selectedParty||!voted)
+            return votes;
+        
+        if(selectedParty===party.name)
+        ++votes
+        else
+        {
+             --votes
+            unVoteMe(setVoted)
+        }
+
+        return votes
+    }
+
     let [voted,setVoted]=useState(false)
 
     const getImagePath=()=>{
         return '/src/assets/'+party.name+'.jpg'
     }
     const handelVoteMe=()=>{
-        setVotes(++votes)
         setVoted(true)
         voteMe()
     }
     return <div className="party scale">
         <h2>{party.name}</h2>
         <img src={getImagePath()}/>
-        <h2>total votes:{votes}</h2>
+        <h2>total votes:{getTotalVotes()}</h2>
         <div className="controls">
-            <button className={!voted ? "voteBtn" : "voteBtnDisable"} onClick={handelVoteMe}>Vote</button>
+            <button className={isVotedUser||IsBallotIn ? "voteBtnDisable" : "voteBtn"} onClick={handelVoteMe}>Vote</button>
         </div>
     </div>
 }

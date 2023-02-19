@@ -16,6 +16,7 @@ function App() {
     setCurrentScreen(1)
 
     const votedUser=votedUsers.find(u=>u.email===_userJson.email)
+    
     if(votedUser)
     setCurrentUser(votedUser)
     else
@@ -24,6 +25,7 @@ function App() {
   
   const getVotedUsers = () => {
     const votedUsers = JSON.parse(localStorage.getItem('votedUsers'))
+    
     if (votedUsers)
       setVotedUsers(votedUsers)
   }
