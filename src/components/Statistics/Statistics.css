@@ -17,6 +17,10 @@
     color: white;
 }
 
-main{
-    height: auto ;
+#statistics{
+display: flex;
+flex-direction: column;
+gap: 30px;
+background: var(--black) !important;
+padding-top: 50px;
 }

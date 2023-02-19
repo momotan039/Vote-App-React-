@@ -14,7 +14,7 @@ function Statistics({ user, changeScreen,votedUsers}) {
         const b=Math.floor(Math.random()*255)
         return `rgb(${r} ${g} ${b} /50%)`
     }
-    return <>
+    return <div id="statistics">
         <MyChart votedUsers={votedUsers}/>
         <div className="table-continer">
         <table id="table-statistics">
@@ -43,6 +43,6 @@ function Statistics({ user, changeScreen,votedUsers}) {
             <h2>Total Votes:{votedUsers.length}</h2> */}
             <button onClick={() => changeScreen(1)}>back</button>
         </div>
-    </>
+    </div>
 }
 export default Statistics

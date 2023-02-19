@@ -5,7 +5,8 @@ import { users } from '../../data';
 function MyChart({votedUsers}) {
 
   const getvoting=(party)=>{
-    return votedUsers.map(v=>v.votedFor===party).length
+    const ff=votedUsers.filter(v=>v.votedFor===party).length
+    return ff
   }
   Chart.defaults.font.weight="bold"
     let chart;
