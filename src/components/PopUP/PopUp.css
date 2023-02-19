@@ -8,6 +8,7 @@
     background-color: rgba(0, 0, 0, 0.534);
     top: 0;
     left: 0;
+    z-index: 999;
 }
 
 #popup-container .content {
@@ -46,6 +47,6 @@
 
 #imgVoted{
     width: 100%;
-    height: 188px;
+    height: 149px;
     border-radius: 10px;
 }

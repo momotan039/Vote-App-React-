@@ -7,7 +7,7 @@ function PopUp(props){
         <div className="content">
             {
                 props.isVoted&&
-                <img id='imgVoted' src="/src/assets/15316-vote-blue.gif"/>
+                <img id='imgVoted' src="/public/vote2.gif"/>
             }
             <h2 className='message'>{props.message}</h2>
             <div className="controls">

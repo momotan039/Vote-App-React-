@@ -36,6 +36,7 @@
 }
 .login form input{
     padding: 11px;
+    width: 100%;
     border-radius: 10px;
     border: none;
     background-color: var(--black);

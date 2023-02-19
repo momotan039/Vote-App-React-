@@ -9,29 +9,32 @@ function Voting(props) {
   
   const checkUserVoted = () => {
     const user = props.votedUsers.find((u) => u.email === props.user.email);
-    setCandidate(user.votedFor)
     debugger
     if (!user) return false;
+
+    setCandidate(user.votedFor)
     return true;
   };
 
   const [candidate, setCandidate] = useState(undefined);
-  const [popUpButtonText, setPopUpButtonText] = useState(undefined);
   const [popupMessage, setPopupMessage] = useState(undefined);
   const [isVoted, setIsVoted] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(false);
   const [IsBallotIn, setIsBallotIn] = useState(checkUserVoted);
 
   const insertBallot=()=>{
     setIsBallotIn(true)
     setIsVoted(false)
+    //show popup 
+    setShowPopUp(true)
+    setPopupMessage("thanks for voting")
      // save the user to the localStorage
      const user = props.user
      user['votedFor'] = candidate
      props.votedUsers.push(user)
      localStorage.setItem("votedUsers", JSON.stringify(props.votedUsers))
   }
-  // useRef to make the funciton re-assignable
-  const closePopUp = useRef();
+
 
   return (
     <div className="container-data">
@@ -44,14 +47,6 @@ function Voting(props) {
         parties={parties}
         IsBallotIn={IsBallotIn}
          />
-     {popupMessage && (
-        <PopUp
-          isVoted={candidate}
-          closePopUp={closePopUp.current}
-          buttonText={popUpButtonText}
-          message={popupMessage}
-        />
-      )}
 
       {isVoted && (
         <div className="scale container-data">
@@ -66,9 +61,19 @@ function Voting(props) {
 
         </div>
       )}
-
+        {
+          showPopUp&&
+          <PopUp
+          isVoted={candidate}
+          closePopUp={()=>setShowPopUp(false)}
+          message={popupMessage}
+          buttonText="complete"
+        />
+        }
       {
         IsBallotIn&&
+       <>
+         
         <div className="scale container-data">
           <h1>You already voted to : {candidate}</h1>
           {props.user.type === "admin" && (
@@ -78,6 +83,7 @@ function Voting(props) {
           )}
           <button onClick={() => tools.logout(props)}>logout</button>
         </div>
+       </>
       }
     </div>
   );
