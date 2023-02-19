@@ -184,7 +184,7 @@
 const parties=[
   {
     name:'dogs',
-    img:'/src/assets/dogs.jpg'
+    img:'/public/dogs.jpg'
   },
   {
     name:'lions',
