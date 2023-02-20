@@ -30,7 +30,7 @@ function PartyCard({ party,voteMe,unVoteMe,isVotedUser,selectedParty,votedUsers,
     
     return <div className={"party "+classEffect}>
         <h2>{party.name}</h2>
-        <img src={getImagePath()}/>
+        <img src={party.img}/>
         <h2>total votes:{getTotalVotes()}</h2>
         <div className="controls">
             <button className={isVotedUser||IsBallotIn ? "voteBtnDisable" : "voteBtn"} onClick={handelVoteMe}>Vote</button>
