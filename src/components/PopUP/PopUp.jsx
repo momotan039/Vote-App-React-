@@ -1,17 +1,17 @@
 import './PopUp.css'
-function PopUp(props){
+function PopUp({showImage,img,message,buttonText,closePopUp}){
 
     debugger
 
     return <div id="popup-container">
         <div className="content">
             {
-                props.isVoted&&
-                <img id='imgVoted' src="/public/vote2.gif"/>
+                showImage&&
+                <img id='imgVoted' src={img}/>
             }
-            <h2 className='message'>{props.message}</h2>
+            <h2 className='message'>{message}</h2>
             <div className="controls">
-                <button onClick={()=>props.closePopUp()}>{props.buttonText??'Ok'}</button>
+                <button onClick={()=>closePopUp()}>{buttonText??'Ok'}</button>
             </div>
         </div>
     </div>

@@ -20,6 +20,7 @@ html,body{
 .container{
   max-width: 1200px;
   margin: auto;
+  text-align: center;
   background-color: var(--black);
   color: var(--light-extra-blue);
 }
@@ -62,3 +63,31 @@ main{
   .scale{
     animation: scalePopup 1s;
   }
+
+  .scale-0{
+    animation: scalePartyCard forwards 1s 0s cubic-bezier(0.47, 0, 0.745, 0.715);
+    scale: 0;
+  }
+
+  .scale-1{
+    animation: scalePartyCard forwards 1s 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+    scale: 0;
+  }
+  
+  .scale-2{
+    animation: scalePartyCard forwards 1s 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+    scale: 0;
+  }
+
+   
+  .scale-3{
+    animation: scalePartyCard forwards 1s 0.7s cubic-bezier(0.47, 0, 0.745, 0.715);
+    scale: 0;
+  }
+
+  
+@keyframes scalePartyCard {
+  to {
+      scale: 1;
+  }
+}

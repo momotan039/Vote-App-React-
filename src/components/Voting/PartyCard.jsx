@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function PartyCard({ party,voteMe,unVoteMe,isVotedUser,selectedParty,votedUsers,IsBallotIn}) {
+function PartyCard({ party,voteMe,unVoteMe,isVotedUser,selectedParty,votedUsers,IsBallotIn,classEffect}) {
     const getTotalVotes=()=>{
 
         let votes=votedUsers.filter(f=>f.votedFor===party.name).length
@@ -28,7 +28,7 @@ function PartyCard({ party,voteMe,unVoteMe,isVotedUser,selectedParty,votedUsers,
         voteMe()
     }
     
-    return <div className="party scale">
+    return <div className={"party "+classEffect}>
         <h2>{party.name}</h2>
         <img src={getImagePath()}/>
         <h2>total votes:{getTotalVotes()}</h2>

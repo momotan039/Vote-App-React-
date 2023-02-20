@@ -6,39 +6,29 @@ import { tools } from "./Voting-functions.js";
 import PartiesContainer from "./PartiesContainer";
 
 function Voting(props) {
-  
-  const checkUserVoted = () => {
-    const user = props.votedUsers.find((u) => u.email === props.user.email);
-    debugger
-    if (!user) return false;
 
-    setCandidate(user.votedFor)
-    return true;
-  };
+  const handelCheckUserVoted = () => {
+   return tools.checkUserVoted(props,setCandidate)
+  }
+  
+  const handelInsertBallot = () => {
+    tools.insertBallot(setIsBallotIn, setIsVoted, setShowPopUp, setPopupMessage, props, candidate)
+  }
 
   const [candidate, setCandidate] = useState(undefined);
   const [popupMessage, setPopupMessage] = useState(undefined);
   const [isVoted, setIsVoted] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
-  const [IsBallotIn, setIsBallotIn] = useState(checkUserVoted);
+  const [IsBallotIn, setIsBallotIn] = useState(handelCheckUserVoted);
 
-  const insertBallot=()=>{
-    setIsBallotIn(true)
-    setIsVoted(false)
-    //show popup 
-    setShowPopUp(true)
-    setPopupMessage("thanks for voting")
-     // save the user to the localStorage
-     const user = props.user
-     user['votedFor'] = candidate
-     props.votedUsers.push(user)
-     localStorage.setItem("votedUsers", JSON.stringify(props.votedUsers))
-  }
+
 
 
   return (
     <div className="container-data">
-      <h1>the voting closed {props.votedUsers.length}</h1>
+
+      {/* <h1>the voting closed {props.votedUsers.length}</h1> */}
+
       <PartiesContainer
         votedUsers={props.votedUsers}
         unVoteParty={(fun) => tools.UnVoteCandidate(fun)}
@@ -46,44 +36,47 @@ function Voting(props) {
         voteParty={(p) => tools.selectParty(p, setIsVoted, setCandidate)}
         parties={parties}
         IsBallotIn={IsBallotIn}
-         />
+      />
 
       {isVoted && (
-        <div className="scale container-data">
-         
+        <div className="scale-3 container-data">
+
           <button onClick={() => tools.changeVote(props, setCandidate, setIsVoted)}>
             Change vote
           </button>
 
-          <button onClick={insertBallot}>
+          <button onClick={handelInsertBallot}>
             Done
           </button>
 
         </div>
       )}
-        {
-          showPopUp&&
-          <PopUp
-          isVoted={candidate}
-          closePopUp={()=>setShowPopUp(false)}
+
+      {
+        showPopUp &&
+        <PopUp
+          showImage={candidate}
+          closePopUp={() => setShowPopUp(false)}
           message={popupMessage}
           buttonText="complete"
+          img={'/vote2.gif'}
         />
-        }
+      }
+
       {
-        IsBallotIn&&
-       <>
-         
-        <div className="scale container-data">
-          <h1>You already voted to : {candidate}</h1>
-          {props.user.type === "admin" && (
-            <button onClick={() => props.changeScreen(3)}>
-              go to statistics
-            </button>
-          )}
-          <button onClick={() => tools.logout(props)}>logout</button>
-        </div>
-       </>
+        IsBallotIn &&
+        <>
+
+          <div className="scale-3 container-data">
+            <h1>You already voted to : {candidate}</h1>
+            {props.user.type === "admin" && (
+              <button onClick={() => props.changeScreen(3)}>
+                go to statistics
+              </button>
+            )}
+            <button onClick={() => tools.logout(props)}>logout</button>
+          </div>
+        </>
       }
     </div>
   );

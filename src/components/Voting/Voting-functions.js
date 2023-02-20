@@ -11,7 +11,27 @@ export const selectParty=(party,setIsVoted,setCandidate)=>{
     setIsVoted(true)
     setCandidate(party)
 }
+export const checkUserVoted = (props,setCandidate) => {
+    const user = props.votedUsers.find((u) => u.email === props.user.email);
+    debugger
+    if (!user) return false;
 
+    setCandidate(user.votedFor)
+    return true;
+  };
+export const insertBallot=(setIsBallotIn,setIsVoted,setShowPopUp,setPopupMessage,props,candidate)=>{
+    setIsBallotIn(true)
+    setIsVoted(false)
+    //show popup 
+    setShowPopUp(true)
+    setPopupMessage("thanks for voting")
+     // save the user to the localStorage
+     const user = props.user
+     user['votedFor'] = candidate
+     props.votedUsers.push(user)
+     localStorage.setItem("votedUsers", JSON.stringify(props.votedUsers))
+  }
+  
 export const voteToCandidate = (candidate,closePopUp,setPopupMessage,setPopUpButtonText,props,setIsVoted) => {
     if (!candidate) {
         setPopupMessage("Please Select Candidate before Voting!!")

@@ -11,7 +11,6 @@ function MyChart({votedUsers}) {
   Chart.defaults.font.weight="bold"
     let chart;
     const initChart = () => {
-        console.log(votedUsers);
       const ctx = document.getElementById('myChart').getContext('2d');
       if (chart) {
         chart.destroy();
@@ -55,7 +54,7 @@ function MyChart({votedUsers}) {
       initChart();
     }, []);
     return <>
-        <div>
+        <div className='scale-1'>
             <canvas width={700} height={400} id="myChart"></canvas>
         </div>
     </>

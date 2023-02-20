@@ -12,6 +12,7 @@ function PartiesContainer({ parties, voteParty, isVoted, candidate,unVoteParty,v
                                         unVoteMe={(fun)=>unVoteParty(fun)}
                                         votedUsers={votedUsers}
                                         IsBallotIn={IsBallotIn}
+                                        classEffect={'scale-'+i}
                                          key={i} />
                         })
                 }

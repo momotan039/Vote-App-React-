@@ -25,7 +25,7 @@ function Login(props) {
 
     return (
         <>
-            <div className='login'>
+            <div className='login scale-0'>
                 <form>
                     <div className="row center">
                         <h1 className='title'>Login To App</h1>
